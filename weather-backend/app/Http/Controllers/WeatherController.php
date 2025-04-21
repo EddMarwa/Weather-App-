@@ -8,7 +8,6 @@ class WeatherController extends Controller
     public function getWeather(Request $request)
     {
         $city = $request->query('city', 'Nairobi');
-
         $apiKey = env('OPENWEATHERMAP_API_KEY');
         $url = "https://api.openweathermap.org/data/2.5/weather?q={$city}&appid={$apiKey}&units=metric";
 
@@ -18,6 +17,6 @@ class WeatherController extends Controller
             return response()->json($response->json());
         }
 
-        return response()->json(['error' => 'Unable to fetch weather data'], 500);
+        return response()->json(['error' => 'Failed to fetch weather'], 500);
     }
 }
