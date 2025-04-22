@@ -8,4 +8,4 @@ Route::get('/', function () {
 });
 
 // Weather API endpoint
-Route::get('/api/weather', [WeatherController::class,'getWeather']);
+Route::get('/api/weather', [WeatherController::class, 'getWeather']);
