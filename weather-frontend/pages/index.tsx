@@ -1,3 +1,29 @@
+'use client'
+import { useEffect, useState } from 'react'
+
+export default function Home() {
+  const [weather, setWeather] = useState<any>(null)
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:8000/api/weather?city=Nairobi')
+      .then((res) => res.json())
+      .then((data) => setWeather(data))
+      .catch((err) => console.error(err))
+  }, [])
+
+  return (
+    <main className="p-4">
+      <h1 className="text-2xl font-bold mb-4">Weather in Nairobi</h1>
+      {weather ? (
+        <pre className="bg-gray-100 p-4 rounded">{JSON.stringify(weather, null, 2)}</pre>
+      ) : (
+        <p>Loading...</p>
+      )}
+    </main>
+  )
+}
+
+/*
 import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 
@@ -113,3 +139,4 @@ export default function Home() {
     </div>
   );
 }
+*/
