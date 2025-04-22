@@ -11,7 +11,7 @@ class WeatherController extends Controller
     public function getWeather(Request $request)
     {
         $city = $request->input('city');
-        $units = $request->input('units', 'metric'); // default to Celsius
+        $units = $request->input('units', 'metric'); // Default to Celsius
 
         if (!$city) {
             return response()->json(['error' => 'City is required'], 400);
