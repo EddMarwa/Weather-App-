@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import 'rippleui/dist/rippleui.css';
+
 
 :root {
   --background: #ffffff;
