@@ -1,6 +1,16 @@
+"use client";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function Home() {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) return null;
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
@@ -18,7 +28,6 @@ export default function Home() {
             <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
               src/app/page.tsx
             </code>
-            .
           </li>
           <li className="tracking-[-.01em]">
             Save and see your changes instantly.
@@ -35,7 +44,7 @@ export default function Home() {
             <Image
               className="dark:invert"
               src="/vercel.svg"
-              alt="Vercel logomark"
+              alt="Vercel logo"
               width={20}
               height={20}
             />
@@ -51,6 +60,7 @@ export default function Home() {
           </a>
         </div>
       </main>
+      
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
@@ -61,7 +71,7 @@ export default function Home() {
           <Image
             aria-hidden
             src="/file.svg"
-            alt="File icon"
+            alt="Documentation"
             width={16}
             height={16}
           />
@@ -76,7 +86,7 @@ export default function Home() {
           <Image
             aria-hidden
             src="/window.svg"
-            alt="Window icon"
+            alt="Templates"
             width={16}
             height={16}
           />
@@ -91,7 +101,7 @@ export default function Home() {
           <Image
             aria-hidden
             src="/globe.svg"
-            alt="Globe icon"
+            alt="Next.js Website"
             width={16}
             height={16}
           />
